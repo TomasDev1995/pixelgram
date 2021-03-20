@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Image;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +13,7 @@ use App\Models\Image;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*use App\Models\Image;
 Route::get('/', function () {
 
     $images = Image::all();
@@ -36,4 +36,16 @@ Route::get('/', function () {
 
     die();
     return view('welcome');
+});*/
+
+Route::get('/', function(){
+    return view('welcome');
 });
+
+Auth::routes(['verify'=>true]);
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/config', [App\Http\Controllers\UserController::class, 'config'])->name('user.config');
+Route::post('/user/update', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
+Route::get('/user/avatar/(filename)', [App\Http\Controllers\UserController::class, 'getImage'])->name('user.avatar');
