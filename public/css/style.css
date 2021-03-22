@@ -1,0 +1,81 @@
+.avatar{
+    width: 40px;
+    margin-bottom: 15px;
+}
+
+.navbar .container-avatar, .pub_image .container-avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 900px;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+.navbar .container-avatar img, .pub_image .container-avatar img{
+    height: 100%;
+}
+
+.pub_image .container-avatar{
+    float:left;
+    margin-right: 15px;
+}
+
+.pub_image{
+    margin-bottom: 25px;
+}
+
+.pub_image .data-user{
+    font-weight: bold;
+    line-height: 45px;
+}
+
+.pub_image .data-user a{
+    color:#444;
+}
+
+.pub_image .nickname{
+    color:gray;
+}
+
+.image-container{
+    max-height: 700px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.image-container img{
+    width: 100%;
+}
+
+.pub_image .card-body{
+    padding: 0px;
+}
+
+.pub_image .description{
+    padding: 20px;
+    padding-bottom: 0px;
+}
+
+.pub_image .btn-comments{
+    margin: 20px;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.pub_image_detail .comments{
+    padding: 20px;
+}
+
+.likes{
+    float: left;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.likes img{
+    width: 20px;
+}
+
+form .box-comment{
+    margin-bottom: 20px;
+}

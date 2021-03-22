@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
-    public function __construc()
+    public function __construct()
     {
         $this->middleware('auth');
     }
+
     public function config()
     {
         return view('user.config');
@@ -56,7 +57,7 @@ class UserController extends Controller
             //guardamos en el storage en la carpeta storage('storage/app/users')
             Storage::disk('users')->put($image_path_name, File::get($image_path));
             
-            //Seteo el nombre de la imagen en el objeto
+            //Seteo el nombre de la imagen en el usuario
             $user->image = $image_path_name;
         }
 
