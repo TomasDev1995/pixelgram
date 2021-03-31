@@ -79,3 +79,7 @@
 form .box-comment{
     margin-bottom: 20px;
 }
+
+.comments .comment{
+    margin-top: 10px;
+}

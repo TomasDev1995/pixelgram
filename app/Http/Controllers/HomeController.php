@@ -5,6 +5,7 @@ use Illuminate\Pagination\Paginator;
 
 use Illuminate\Http\Request;
 use App\Models\Image;
+use App\Models\Comment;
 
 class HomeController extends Controller
 {
@@ -29,5 +30,6 @@ class HomeController extends Controller
         return view('home', [
             'images' => $images
         ]);
+
     }
 }

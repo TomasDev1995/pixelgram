@@ -10,7 +10,7 @@ class Image extends Model
     protected $table = 'images';
 
     public function comments(){
-        return $this->hasMany(Coment::class, 'images_id');
+        return $this->hasMany(Comment::class, 'images_id')->orderBy('id','desc');
     }
 
     public function like(){
@@ -18,6 +18,6 @@ class Image extends Model
     }
 
     public function user(){
-        return $this->belongsTo('App\Models\User', 'users_id');
+        return $this->belongsTo(User::class, 'users_id');
     }
 }

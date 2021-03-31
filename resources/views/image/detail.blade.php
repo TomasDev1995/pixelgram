@@ -35,7 +35,7 @@
                     </div>
                     <div class="clearfix"></div>
                     <div class="comments">
-                        <h3>Comentarios ({{count($image->comments)}})</h3>
+                        <h4>Comentarios ({{count($image->comments)}})</h4>
                         <hr>
 
                         <form action="{{route('comment.save')}}" method="POST">
@@ -55,7 +55,20 @@
                                 Enviar
                             </button>
                         </form>
-                        
+                        @foreach($image->comments as $comment)
+                            <div class="comment">
+                                <span class="nickname">{{'@'.$comment->user->nick}}</span> 
+                                <span class="nickname date">{{' | '.\FormatTime::LongTimeFilter($comment->created_at)}}</span>
+                                <p>{{$comment->content}}</p>
+
+                                @if(Auth::check() && ($comment->users_id == Auth::user()->id || $comment->images->users_id == Auth::user()->id))
+                                    <a href="{{route('comment.delete', ['id', $comment->id])}}" class="btn btn-sm btn-danger">
+                                        Eliminar
+                                    </a>
+                                @endif
+
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'INSTAGRAM'),
+    'name' => env('APP_NAME', 'Pixelgram photo'),
 
     /*
     |--------------------------------------------------------------------------
