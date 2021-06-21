@@ -34,7 +34,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li>Actualizaciones al 20/06/2021</li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
