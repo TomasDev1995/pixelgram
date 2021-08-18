@@ -1,2 +1,2 @@
 # instagramCLONE
-Aplicacion en branch MASTER
+Aplicación en branch MASTER
