@@ -23,9 +23,9 @@
                     <div class="image-container">
                         <img src="{{ route('image.file', ['filename' => $image->imagen_path]) }}" alt=""/>
                     </div>
-                    
+
                     <div class="description">
-                        <span class="nickname">{{'@'.$image->user->nick}}</span> 
+                        <span class="nickname">{{'@'.$image->user->nick}}</span>
                         <span class="nickname date">{{' | '.\FormatTime::LongTimeFilter($image->created_at)}}</span>
                         <p>{{$image->description}}</p>
                     </div>
@@ -39,7 +39,7 @@
                         <hr>
 
                         <form action="{{route('comment.save')}}" method="POST">
-                            @csrf 
+                            @csrf
                             <input type="hidden" name="image_id" value="{{$image->id}}">
                             <p>
                                 <textarea name="content"  id="" cols="30" rows="10" class="form-control box-comment {{$errors->has('content') ? 'is-invalid' : ''}}"></textarea>
@@ -49,19 +49,19 @@
                                 </span>
                                 @enderror
                             </p>
-                            
-                            
+
+
                             <button type="submit" class="btn btn-success">
                                 Enviar
                             </button>
                         </form>
                         @foreach($image->comments as $comment)
                             <div class="comment">
-                                <span class="nickname">{{'@'.$comment->user->nick}}</span> 
+                                <span class="nickname">{{'@'.$comment->user->nick}}</span>
                                 <span class="nickname date">{{' | '.\FormatTime::LongTimeFilter($comment->created_at)}}</span>
                                 <p>{{$comment->content}}</p>
 
-                                @if(Auth::check() && ($comment->users_id == Auth::user()->id || $comment->images->users_id == Auth::user()->id))
+                                @if(Auth::check() && ($comment->user->id == Auth::user()->id || $comment->images->users_id == Auth::user()->id))
                                     <a href="{{route('comment.delete', ['id', $comment->id])}}" class="btn btn-sm btn-danger">
                                         Eliminar
                                     </a>

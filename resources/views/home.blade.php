@@ -25,11 +25,13 @@
 
                         <div class="card-body">
                             <div class="image-container">
-                                    <img src="{{ route('image.file', ['filename' => $image->imagen_path]) }}" alt=""/>   
+                                <a href="{{ route('image.detail', ['id' => $image->id]) }}">
+                                    <img src="{{ route('image.file', ['filename' => $image->imagen_path]) }}" alt=""/>
+                                </a>
                             </div>
-                            
+
                             <div class="description">
-                                <span class="nickname">{{'@'.$image->user->nick}}</span> 
+                                <span class="nickname">{{'@'.$image->user->nick}}</span>
                                 <span class="nickname date">{{' | '.\FormatTime::LongTimeFilter($image->created_at)}}</span>
                                 <p>{{$image->description}}</p>
                             </div>
@@ -38,7 +40,7 @@
                                 <img src="{{asset('/img/corazon-negro.png')}}" alt=""/>
                             </div>
 
-                            <div class="commets">
+                            <div class="comments">
                                 <a href="#" class="btn btn-warning btn-sm btn-comments">
                                     Comentarios ({{count($image->comments)}})
                                 </a>

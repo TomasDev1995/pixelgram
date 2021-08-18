@@ -27,11 +27,9 @@ class CommentController extends Controller
 
         //Asigno los valores a mi objeto
         $comment = new Comment;
-        //dd($comment);
         $comment->users_id = $user->id;
         $comment->images_id = $image_id;
         $comment->content = $content;
-       
         //guardar en la base de datos
         $comment->save();
 
@@ -46,11 +44,10 @@ class CommentController extends Controller
     public function delete($id){
         //Conseguir datos del usuario identificado
         $user = \Auth::user();
-
         //Conseguir objeto del comentario
         $comment = Comment::find($id);
         //Comprobar si soy el dueño del comentario o de la publicacion
-        if ($user && ($comment->users_id == $user->id || $comment->images->users_id == $user->id)) {
+        if ($user && ($comment->users_id == $user->id || $comment->images_id->users_id == $user->id)) {
             $comment->delete();
             return redirect()->route('image.detail', ['id' => $comment->images->id])
                         ->with([

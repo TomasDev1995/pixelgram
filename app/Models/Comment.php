@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    protected $table = 'coments';
+    protected $table = 'comments';
 
     public function user()
     {
