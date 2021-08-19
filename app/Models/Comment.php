@@ -11,11 +11,11 @@ class Comment extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'users_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function images()
     {
-        return $this->belongsTo(Image::class, 'images_id');
+        return $this->belongsTo(Image::class, 'image_id');
     }
 }

@@ -10,14 +10,14 @@ class Image extends Model
     protected $table = 'images';
 
     public function comments(){
-        return $this->hasMany(Comment::class, 'images_id')->orderBy('id','desc');
+        return $this->hasMany(Comment::class, 'image_id')->orderBy('id','desc');
     }
 
     public function like(){
-        return $this->hasMany(Like::class, 'images_id');
+        return $this->hasMany(Like::class, 'image_id');
     }
 
     public function user(){
-        return $this->belongsTo(User::class, 'users_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

@@ -16,14 +16,14 @@ class CreateImagesTable extends Migration
         Schema::dropIfExists('images');
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('users_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('imagen_path', 255)->nullable();
             $table->text('description', 200)->nullable();
             $table->timestamps();
         });
 
         Schema::table('images', function(Blueprint $table){
-            $table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
