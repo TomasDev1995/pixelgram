@@ -1,2 +1,2 @@
-# instagramCLONE
+# Pixelgram
 Aplicación en branch MASTER
