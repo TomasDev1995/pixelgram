@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Image; 
+use App\Models\Image;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Response;
- 
+
 class ImageController extends Controller
 {
     public function __construct(){
@@ -19,7 +19,7 @@ class ImageController extends Controller
     }
 
     public function save(Request $request){
-        
+
         // Validación
         $validate = $this->validate($request, [
             'description' => 'required',
@@ -34,7 +34,7 @@ class ImageController extends Controller
         //Asginar valores
         $user = \Auth::user();
         $image = new Image;
-        $image->users_id = $user->id;
+        $image->user_id = $user->id;
         $image->description = $description;
 
         //Pregunta si es true lo que trae el request en el campo image_path
