@@ -31,8 +31,21 @@
                     </div>
 
                     <div class="likes">
-                        <img src="{{asset('/img/corazon-negro.png')}}" alt=""/>
+                        <?php $user_like = false; ?>
+                        @foreach($image->like as $like)
+                            @if($like->user->id == Auth::user()->id)
+                                <?php $user_like = true; ?>
+                            @endif
+                        @endforeach
+
+                        @if($user_like)
+                            <img src="{{asset('/img/corazon-rojo.png')}}" data-id="{{$image->id}}" class="btn-dislike"/>
+                        @else
+                            <img src="{{asset('/img/corazon-negro.png')}}" data-id="{{$image->id}}" class="btn-like"/>
+                        @endif
+                        <span class="number_likes">{{count($image->like)}}</span>
                     </div>
+
                     <div class="clearfix"></div>
                     <div class="comments">
                         <h4>Comentarios ({{count($image->comments)}})</h4>

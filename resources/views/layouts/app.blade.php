@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -46,7 +47,7 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-                            
+
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -56,7 +57,11 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="{{route('home')}}">Inicio</a>
                             </li>
-                            
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="{{route('likes.index')}}">Actividad</a>
+                            </li>
+
                             <li>
                                 <a class="nav-link" href="{{route('image.create')}}">Subir imagen</a>
                             </li>
@@ -65,7 +70,6 @@
                                 @include('includes.avatar')
                             </li>
 
-                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -77,7 +81,7 @@
                                     </a>
 
                                     <a class="dropdown-item" href="{{route('user.config')}}">
-                                        Configuracion                                       
+                                        Configuracion
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

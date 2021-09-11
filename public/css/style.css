@@ -83,3 +83,8 @@ form .box-comment{
 .comments .comment{
     margin-top: 10px;
 }
+
+.number_likes{
+    color: gray;
+    font-size: 11px;
+}
