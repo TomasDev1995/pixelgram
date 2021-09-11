@@ -61,8 +61,8 @@
                                 <span class="nickname date">{{' | '.\FormatTime::LongTimeFilter($comment->created_at)}}</span>
                                 <p>{{$comment->content}}</p>
 
-                                @if(Auth::check() && ($comment->user->id == Auth::user()->id || $comment->images->users_id == Auth::user()->id))
-                                    <a href="{{route('comment.delete', ['id', $comment->id])}}" class="btn btn-sm btn-danger">
+                                @if(Auth::check() && ($comment->user_id == Auth::user()->id || $comment->images->user_id == Auth::user()->id))
+                                    <a href="{{route('comment.delete', ['id' => $comment->id])}}" class="btn btn-sm btn-danger">
                                         Eliminar
                                     </a>
                                 @endif
