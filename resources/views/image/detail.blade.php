@@ -13,10 +13,12 @@
                     </div>
                     @endif
                     <div class="data-user">
+                        <a href="{{ route('user.profile', ['id' => $image->user_id]) }}">
                             {{$image->user->name.' '.$image->user->surname}}
                             <span class="nickname">
                                 {{' | @'.$image->user->nick}}
                             </span>
+                        </a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -45,7 +47,42 @@
                         @endif
                         <span class="number_likes">{{count($image->like)}}</span>
                     </div>
+                    @if(Auth::user() && Auth::user()->id == $image->user_id)
+                        <div class="actions">
+                            <a href="{{route('image.edit', ['id' => $image->id])}}" class="btn btn-sm btn-primary">Editar</a>
 
+                            <!-- Button to Open the Modal -->
+                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#myModal">
+                                Eliminar
+                            </button>
+
+                            <!-- The Modal -->
+                            <div class="modal" id="myModal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">¿Estas seguro?</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                            Si borras la publicación ya no podras volver a verla.
+                                        </div>
+
+                                        <!-- Modal footer -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
+                                            <a href="{{route('image.delete', ['id' => $image->id])}}" class="btn btn-danger">Borrar</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                     <div class="clearfix"></div>
                     <div class="comments">
                         <h4>Comentarios ({{count($image->comments)}})</h4>
@@ -55,7 +92,7 @@
                             @csrf
                             <input type="hidden" name="image_id" value="{{$image->id}}">
                             <p>
-                                <textarea name="content"  id="" cols="30" rows="10" class="form-control box-comment {{$errors->has('content') ? 'is-invalid' : ''}}"></textarea>
+                                <textarea name="content"  id="" cols="30" rows="1" class="form-control box-comment {{$errors->has('content') ? 'is-invalid' : ''}}"></textarea>
                                 @error('content')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

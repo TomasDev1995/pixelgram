@@ -41,10 +41,14 @@
     max-height: 700px;
     overflow: hidden;
     width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
 }
 
 .image-container img{
     width: 100%;
+    border-radius: 15px;
 }
 
 .pub_image .card-body{
@@ -88,3 +92,32 @@ form .box-comment{
     color: gray;
     font-size: 11px;
 }
+
+.profile-user{
+    margin-bottom: 40px;
+    height: 200px;
+}
+.profile-user .container-avatar{
+    width: 200px;
+    height: 200px;
+    border-radius: 900px;
+    overflow: hidden;
+    float: left;
+}
+
+.profile-user .container-avatar img{
+    width: 100%;
+    height: 100%;
+}
+
+.profile-user .user-info{
+    float: left;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.container-avatar .image-update{
+    width: 387px;
+    margin-bottom: 20px;
+}
+
