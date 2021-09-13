@@ -6,7 +6,7 @@
             </div>
         @endif
         <div class="data-user">
-            <a href="{{ route('image.detail', ['id' => $image->id]) }}">
+            <a href="{{ route('user.profile', ['id' => $image->user_id]) }}">
                 {{$image->user->name.' '.$image->user->surname}}
                 <span class="nickname">
                     {{' | @'.$image->user->nick}}
@@ -45,7 +45,7 @@
         </div>
 
         <div class="comments">
-            <a href="#" class="btn btn-warning btn-sm btn-comments">
+            <a href="{{route('image.detail', ['id' => $image->id])}}" class="btn btn-warning btn-sm btn-comments">
                 Comentarios ({{count($image->comments)}})
             </a>
         </div>
