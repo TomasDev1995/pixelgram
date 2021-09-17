@@ -59,6 +59,10 @@
                             </li>
 
                             <li class="nav-item dropdown">
+                                <a class="nav-link" href="{{route('user.index')}}">Amigos</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
                                 <a class="nav-link" href="{{route('likes.index')}}">Actividad</a>
                             </li>
 
